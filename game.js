@@ -8,12 +8,9 @@ simon.started = false;
 
 simon.nextSequence = function() {
     let randomNumber = Math.floor(Math.random() * 4);
-    // console.log(randomNumber)
-
     let randomChosenColor = simon.buttonColors[randomNumber]
     
     simon.gamePattern.push(randomChosenColor);
-    console.log(simon.gamePattern)
 
     $(`#${randomChosenColor}`).fadeIn(100).fadeOut(100).fadeIn(100)
     
@@ -76,12 +73,9 @@ $(document).ready(function() {
 
     $('div[type=button]').on('click', function () {
         let userChosenColor = this.id;
-        // console.log(userChosenColor)
         simon.userClickedPattern.push(userChosenColor)
-        // console.log(simon.userClickedPattern)
         simon.playSound(userChosenColor);
         simon.animatePress(userChosenColor);
-    
         simon.checkAnswer(simon.userClickedPattern.length -1);
     })
     
